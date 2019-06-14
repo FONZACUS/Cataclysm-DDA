@@ -232,7 +232,6 @@ static const trait_id trait_LEG_TENT_BRACE( "LEG_TENT_BRACE" );
 static const trait_id trait_M_IMMUNE( "M_IMMUNE" );
 static const trait_id trait_PARKOUR( "PARKOUR" );
 static const trait_id trait_RUMINANT( "RUMINANT" );
-static const trait_id trait_SHELL2( "SHELL2" );
 static const trait_id trait_VINES2( "VINES2" );
 static const trait_id trait_VINES3( "VINES3" );
 
@@ -246,7 +245,7 @@ void intro();
 extern std::map<std::string, std::list<input_event>> quick_shortcuts_map;
 extern bool add_best_key_for_action_to_quick_shortcuts( action_id action,
         const std::string &category, bool back );
-extern bool add_key_to_quick_shortcuts( long key, const std::string &category, bool back );
+extern bool add_key_to_quick_shortcuts( int key, const std::string &category, bool back );
 #endif
 
 //The one and only game instance
@@ -7734,7 +7733,7 @@ static int get_initial_hotkey( const size_t menu_index )
 {
     int hotkey = -1;
     if( menu_index == 0 ) {
-        const long butcher_key = inp_mngr.get_previously_pressed_key();
+        const int butcher_key = inp_mngr.get_previously_pressed_key();
         if( butcher_key != 0 ) {
             hotkey = butcher_key;
         }
